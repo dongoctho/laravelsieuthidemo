@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{{asset('css/styletrangchu1.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link href="{{asset('css/sb-admin.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/dashbroad.css')}}">
+    <link rel="stylesheet" href="{{asset('css/hanghoa.css')}}">
+    <link href="{{asset('css/dropdown2.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="/bootstraps/css/lids1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>Document</title>
@@ -35,7 +41,7 @@
                 <div class="header-top-right-1">
                     <div class="header-top-right-1-1"><a href=""><i class="fa-solid fa-cart-shopping iconcard"></i></a></div>
                     <div class="header-top-right-1-2">
-                        <a class="dk" href="">Giỏ hàng</a>
+                        <a class="dk" href="{{route('cart-list')}}">Giỏ hàng</a>
                         <a class="dn" href="">0 đ</a>
                     </div>
                 </div>
@@ -292,19 +298,23 @@
     </header>
 
     @yield('orderadd')
+    @yield('list-cart')
 
-    <div class="slide">
-        <div class="w3-content w3-section slidebar" style="max-width:50%">
-            <img class="mySlides" src="{{asset('uploads/slidebar1.png')}}" style="max-width:160%">
-            <img class="mySlides" src="{{asset('uploads/slidebar2.png')}}" style="max-width:160%">
-            <img class="mySlides" src="{{asset('uploads/slidebar3.png')}}" style="max-width:160%">
+    <div class="slb3" style="margin-top: 100px">
+        <div class="slide">
+            <div class="w3-content w3-section slidebar" style="max-width:50%">
+                <img class="mySlides" src="{{asset('uploads/slidebar1.png')}}" style="max-width:160%">
+                <img class="mySlides" src="{{asset('uploads/slidebar2.png')}}" style="max-width:160%">
+                <img class="mySlides" src="{{asset('uploads/slidebar3.png')}}" style="max-width:160%">
+            </div>
+        </div>
+        <div class="slide-bottom">
+            <img class="img-slide" src="/uploads/ddhh.png" alt="">
+            <img class="img-slide" src="/uploads/ghtl.png" alt="">
+            <img class="img-slide" src="/uploads/tgtk.png" alt="">
         </div>
     </div>
-    <div class="slide-bottom">
-        <img class="img-slide" src="/uploads/ddhh.png" alt="">
-        <img class="img-slide" src="/uploads/ghtl.png" alt="">
-        <img class="img-slide" src="/uploads/tgtk.png" alt="">
-    </div>
+
 
 
     <div class="menu">
@@ -363,19 +373,20 @@
                 <a style="color: red;" href="">New Arrivals</a>
                 <div class="product--giay">
                     <a href="">
-                        <h1 class="center">GIÀY THỂ THAO</h1>
+                        <h1 class="center">SẢN PHẨM</h1>
                     </a>
                     <div class="product--ul">
 
-                        @foreach ($hanghoas as $hanghoa)
-                        <li class="product--li">
-                            <a href="{{route('cart-add',['id'=>$hanghoa->id])}}"><img class="a-giaynu" src="{{asset('uploads/'.$hanghoa->file_upload)}}" style="width: 150px; height:200px" alt=""></a>
-                            <a href="{{route('cart-add',['id'=>$hanghoa->id])}}">
-                                <p>{{$hanghoa->name}}</p>
-                            </a>
-                            <p>{{$hanghoa->price}} đ</p>
-                        </li>
-                        @endforeach
+                            @foreach ($hanghoas as $hanghoa)
+                            <li class="product--li">
+                                <a href="{{route('cart-add',['id'=>$hanghoa->id])}}"><img class="a-giaynu"
+                                   src="{{asset('uploads/'.$hanghoa->file_upload)}}" style="width: 150px; height:200px" alt=""></a>
+                                <a href="{{route('cart-add',['id'=>$hanghoa->id])}}">
+                                    <p>{{$hanghoa->name}}</p>
+                                </a>
+                                <p>{{$hanghoa->price}} đ</p>
+                            </li>
+                            @endforeach
 
                     </div>
                 </div>

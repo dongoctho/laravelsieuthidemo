@@ -25,12 +25,18 @@ use App\Models\Producer;
 |
 */
 
-Route::get('/login', [AuthController::class, 'index'])->name('login-page');
-Route::post('/login', [AuthController::class, 'login']);
+Route::get('/loginn', [AuthController::class, 'index'])->name('login-page');
+Route::post('/loginn', [AuthController::class, 'login']);
+Route::get('/logout',[AuthController::class, 'logout'])->name('log_out');
 
 Route::prefix('index')->group(function(){
 
-    Route::get('/', [IndexController::class, 'show'])->name('index');
+    Route::get('/index', [IndexController::class, 'show'])->name('index');
+    //cart
+    Route::prefix('cart')->group(function(){
+        Route::get('/cart/{id}',[CartController::class, 'store'])->name('cart-add');
+        Route::get('/list',[CartController::class, 'listcart'])->name('cart-list');
+    });
 
 });
 
@@ -93,10 +99,6 @@ Route::prefix('dashboard')->group(function(){
         Route::get('/list',[OrderController::class, 'index'])->name('order-list');
         Route::get('/delete/{id}', [OrderController::class, 'destroy'])->name('delete-order');
     });
-    //cart
-    Route::prefix('order')->group(function(){
-        Route::get('/cart/{id}',[CartController::class, 'store'])->name('cart-add');
-        Route::get('/list/{id}',[CartController::class, 'index_cart'])->name('order-cart');
-    });
+
 });
 

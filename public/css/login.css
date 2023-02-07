@@ -1,0 +1,94 @@
+.body{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
+.header{
+    display: flex;
+    justify-content: center;
+}
+h1{
+    font-size: 90px;
+    color: rgb(30, 113, 197);
+}
+.form-body{
+    display: flex;
+    justify-content: center;
+}
+.inputt{
+    text-align: center;
+    padding: 10px 0 10px 0;
+    border-radius: 20px;
+    border: 1px solid rgb(30, 113, 197);
+}
+.input-login{
+    border: 0 rgb(30, 113, 197) solid;
+    margin: 0 10px 0 10px;
+    width: 100px;
+    padding: 10px 0 10px 0;
+    border-radius: 20px;
+    background-color: rgb(30, 113, 197);
+    color: white;
+    font-weight: bolder;
+}
+.login-center{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.input-login:hover{
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+.boders{
+    border: 1px solid rgb(30, 113, 197);
+    width: 400px;
+    border-radius: 30px;
+}
+.boderss{
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+}
+.dangky{
+    display: flex;
+    justify-content: center;
+    margin: 0 10px 0 10px;
+    width: 100px;
+    padding: 10px 0 10px 0;
+    border-radius: 20px;
+    background-color: rgb(30, 113, 197);
+    font-weight: bolder;
+}
+.dangkys{
+    color: white;
+    text-decoration: none;
+}
+.dangky:hover{
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+.qmks{
+    display: flex;
+    justify-content: center;
+}
+.qmk{
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: red;
+}
+.icon{
+    width: 50px;
+    margin: 0 20px 20px 20px;
+}
+.fbgg{
+    display: flex;
+    justify-content: center;
+}
+.help{
+    color: red;
+}
+.msg{
+    color: red;
+    text-align: center;
+}

@@ -7,7 +7,7 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-          <table id="example1" class="table">
+          <table id="example1" class="table" style="margin-top: 50px">
             <thead>
             <tr>
                           <th class="lids"></th>
@@ -19,14 +19,13 @@
             </tr>
             </thead>
             <tbody>
-            @foreach ($hanghoashow as $hanghoaa)
+            @foreach ($carts as $cart)
             <tr>
-                      <td class="lids1">{{$hanghoaa->id}}</td>
-                      <td class="lids1">{{$hanghoaa->product_name}}</td>
-                      <td class="lids1">{{$hanghoaa->price}}</td>
-                      <td class="lids1">{{$hanghoaa->amount}}</td>
-                      <td class="lids1">{{$hanghoaa->voucher}}</td>
-                      <td class="lids1">{{$hanghoaa->total}}</td>
+                      <td class="lids1"><img src="{{asset('uploads/'.$cart->file_upload)}}" width="50px" height="35px" alt="error"></td>
+                      <td class="lids1">{{$cart->name}}</td>
+                      <td class="lids1">{{$cart->price}}</td>
+                      <td class="lids1">{{$cart->amount}}</td>
+                      <td class="lids1">{{$cart->total}}</td>
                       <td class="lids1"><a href=""><i class="fa-solid fa-pen-to-square"></i></a></td>
             </tr>
             @endforeach

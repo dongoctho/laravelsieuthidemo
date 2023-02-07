@@ -12,7 +12,7 @@ use SebastianBergmann\CodeCoverage\Report\Xml\Totals;
 
 class CartController extends Controller
 {
-    protected $CartRepository;
+    protected $cartRepository;
     protected $hanghoaRepository;
 
 
@@ -21,7 +21,7 @@ class CartController extends Controller
     public function __construct(CartRepositoryInterface $cartRepositoryInterface,hanghoaRepositoryInterface $hanghoaRepositoryInterface)
     {
         $this->hanghoaRepository = $hanghoaRepositoryInterface;
-        $this->OrderRepository = $cartRepositoryInterface;
+        $this->cartRepository = $cartRepositoryInterface;
 
     }
 
@@ -29,25 +29,30 @@ class CartController extends Controller
 
     public function store(int $id)
     {
-        $hanghoashow = $this->hanghoaRepository->find($id);
-        $data = [
-            'name' => $hanghoashow->name,
-            'price' => $hanghoashow->price,
-            'amount' => '1',
-            'total' => $hanghoashow->price
-        ];
 
-        $this->OrderRepository->create($data);
-        return redirect()->route('index', $id)->with('msg', 'Thành Công');
+        $hanghoashow = $this->hanghoaRepository->find($id);
+        $cart = $this->cartRepository->getAll();
+
+            $data = [
+                'name' => $hanghoashow->name,
+                'price' => $hanghoashow->price,
+                'amount' =>  $hanghoashow->amount,
+                'total' => $hanghoashow->price*$hanghoashow->amount,
+                'file_upload' => $hanghoashow->file_upload
+            ];
+            $this->cartRepository->create($data);
+
+
+        return redirect()->route('index')->with('msg', 'Thành Công');
     }
 
-    public function index_cart(int $id){
-        $hanghoas = $this->hanghoaRepository->getAll();
-        $hanghoashow = $this->hanghoaRepository->find($id);
+    public function listcart(){
 
+        $carts = $this->cartRepository->getAll();
+        $hanghoas = $this->hanghoaRepository->getAll();
         return view('admin.order.cart', [
-            'hanghoas' => $hanghoas,
-            'hanghoashow' => $hanghoashow
+            'carts' => $carts,
+            'hanghoas' => $hanghoas
         ]);
     }
 

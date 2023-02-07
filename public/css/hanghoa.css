@@ -12,10 +12,6 @@
     min-width: 100%;
 }
 
-body {
-    background-color: #b0adad;
-}
-
 .add-bottom {
     display: flex;
     justify-content: center;
